@@ -13,6 +13,7 @@ const   autoprefixer    =       require("autoprefixer"),
         cssnano         =       require("gulp-cssnano"),
         rename          =       require('gulp-rename'),
         watch           =       require("gulp-watch"),
+        twig            =       require("gulp-twig"),
         htmlmin         =       require('gulp-htmlmin');
 
 
@@ -59,10 +60,13 @@ function js(cb) {
     cb();
 }
 
+/* HTML templating based on TwigJS. 
+* File minification based on htmlmin. */
 function html(cb) {
     src([path.srcHTML])
       .pipe(watch(path.srcHTML))
       .pipe(plumber())
+      .pipe(twig())
       .pipe(htmlmin({ collapseWhitespace: true }))
       .pipe(dest(path.buildHTML));
     cb();
