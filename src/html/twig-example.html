@@ -1,0 +1,22 @@
+{% extends "layouts/twig-default.html" %}
+{% import "components/twig-macros.twig" as twigmacros %}
+{% set title = "Twig.js templating test 2" %}
+{% set pageTitle = "Use Twig from the start!" %}
+{% set benefits = ["Fast!", "Easy!", "Efficient!"] %}
+
+{% block content %}
+
+{% include "template-parts/twig-header.html" %}
+
+<ul>
+    {% for value in benefits %}
+        <li>{{ value }}</li>
+    {% endfor %}
+</ul>
+
+<form action="">
+    {{ twigmacros.input('username') }}
+    {{ twigmacros.input('pass', '', 'password') }}
+</form>
+
+{% endblock %}
