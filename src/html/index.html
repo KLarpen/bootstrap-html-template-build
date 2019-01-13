@@ -1,0 +1,51 @@
+{% extends 'layouts/bootstrap-starter-local.html' %}
+{% set title = "Bootstrap v4 Starter" %}
+{% set copywright_text = "© KLarpen. All rights reserved" %}
+{% set pageTitle = "Bootstrap Starter Build" %}
+{% set benefits = ["Fast!", "Easy!", "Efficient!"] %}
+
+
+{% block headmeta %}
+<!-- Tech meta  -->
+    <!-- OpenGraph -->
+    <!-- Linked Data -->
+{% endblock %}
+
+{% block headscripts %}
+    <!-- Page Specific Scripts & Styles -->
+{% endblock %}
+
+{% block bodyopenscripts %}
+    <!-- Page specific scripts that need to be placed exactly after the body open  -->
+{% endblock %}
+
+{% block headercontent %}
+<header>
+        <h1> {{pageTitle}} </h1>
+    </header>
+{% endblock %} 
+
+{% block maincontent %}
+<main>
+        <div>
+            <p>Main content 2</p>
+            <ul>
+            {% for value in benefits %}
+                <li>{{ value }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </main>
+{% endblock %}
+
+{% block footercontent %}
+<footer>
+        <div class="copyright">
+            {{ copywright_text }}
+        </div>
+    </footer>
+{% endblock %}
+
+{% block footerscripts %}
+<!-- Page Specific Scripts & Styles (footer) -->
+{% endblock %}

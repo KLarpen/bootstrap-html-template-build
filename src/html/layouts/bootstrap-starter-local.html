@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block headmeta %}{% endblock %}
+    <title>{{ title }} | Sitename</title>
+    
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    
+    {% block headscripts %}{% endblock %}
+  </head>
+  <body>
+    {% block bodyopenscripts %}{% endblock %}
+    {% block headercontent %}{% endblock %} 
+    {% block maincontent %}{% endblock %}
+    {% block footercontent %}{% endblock %}
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    
+    {% block footerscripts %}{% endblock %}
+  </body>
+</html>
