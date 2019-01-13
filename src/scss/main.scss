@@ -1,0 +1,204 @@
+@import 'includes/variables';
+@import 'includes/mixins';
+@import 'includes/functions';
+@import 'includes/resets';
+
+body {
+    font: 3rem $font-stack-titles;
+    background-color: $primary-color;
+}
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li { display: inline-block; }
+
+    a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+    }
+}
+
+.box { @include transform(rotate(35deg)); }
+
+/* %message-shared is a placeholder class 
+*  for been extended in real classes. */
+%message-shared {
+    border: 1px solid #ccc;
+    padding: 5rem;
+    color: #333;
+}
+
+.message {
+    @extend %message-shared;
+}
+
+.success {
+    @extend %message-shared;
+    border-color: green;
+}
+
+a {
+    font-weight: 700;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+    body.firefox & { font-weight: 500; }
+}
+
+/* Making a compound selector with & (referencing parent selector) */
+#main {
+    color: black;
+    &-sidebar { border: 1px solid; }
+}
+
+/* Nested Properties */
+.funky {
+    font: {
+        family: Helvetica;
+        size: 30em;
+        weight: 400;
+    }
+}
+
+@include firefox-message(".headelem");
+
+// You can assign to variables if they aren't already assigned 
+// by adding the !default flag to the end of the value.
+#variable-defaults {
+    content: $content;
+    &::before {
+        content: $new-content;
+    }
+}
+
+//Nested import
+section.info {
+    padding-top: 20rem;
+    padding-bottom: if(true, 15rem, 0rem);
+
+    @import 'components/card';
+}
+
+.box-of-items {
+    // The @for directive repeatedly outputs a set of styles.
+    @for $i from 1 through 3 {
+        .item-#{$i} { width: 2em * $i; }
+    }
+}
+
+// The @each rule sets $var to each item in the list or map, 
+// then outputs the styles it contains using that value of $var.
+@each $social in facebook, linkedin, youtube, instagram {
+    .#{$social}-icon {
+      background-image: url('/image/icon/#{$social}.png');
+    }
+}
+
+@each $animal, $color, $cursor in (puma, black, default),
+                                  (sea-slug, blue, pointer),
+                                  (egret, white, move) {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+    border: 2px solid $color;
+    cursor: $cursor;
+  }
+}
+
+.list-of-items {
+    // The @while directive takes a SassScript expression and repeatedly 
+    // outputs the nested styles until the statement evaluates to false.
+    $reference: 6;
+    @while $reference > 0 {
+    .item-#{$reference} { width: 2em * $reference; }
+    $reference: $reference - 2;
+    }
+}
+
+.variable-arguments {
+    // Mixin await variable count of arguments by definition.
+    .shadows {
+        @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
+    }
+    
+    // Variable arguments can also be used when calling a mixin.
+    $values-list: #ff0000, #00ff00, #0000ff;
+    .primary {
+    @include colors($values-list...);
+    }
+
+    $value-map: (text: #00ff00, background: #0000ff, border: #ff0000);
+    .secondary {
+    @include colors($value-map...);
+    }
+}
+
+// The block of content passed to a mixin are evaluated in the scope 
+// where the block is defined, not in the scope of the mixin.
+$color: white;
+.colors {
+    @include colors-with-passing-content() { 
+        color: $color; 
+    }
+}
+
+// Use custom function
+#sidebar { width: grid-width(5); }
+
+
+/* The Block, Element, Modifier methodology (commonly referred to as BEM) 
+* is a popular naming convention for classes in HTML and CSS.
+* Another smart part of BEM is that everything is a class and nothing is nested.
+* Here are some basic principles example... */
+
+/* Block component */
+.btn {
+    background-color: #00ff00;
+
+    &__price {
+        /* Element that depends upon the block */
+        background-color: #333;
+        color: #fff;
+        padding-right: 12px;
+        padding-left: 12px;
+        margin-right: -10px; /* realign button text padding */
+        opacity: .4;
+        border-radius: 5px 0 0 5px;
+
+        &--red {
+           /* Modifier */
+           color: #ff0000; 
+        }
+    }
+
+    &--big {
+        /* Modifier */
+        font-size: 28px;
+        padding: 10px;
+        font-weight: 400;
+    }
+  
+
+    &--orange {
+        /* Modifier that changes the style of the block */
+        border-color: #FF4136;
+        color: white;
+        background-color: #FF4136;
+    }
+
+    &--green {
+        /* Modifier */
+        border-color: #3D9970;
+        color: white;
+        background-color: #3D9970;
+    }
+}
+
+
+
+
+@import 'responsive/main-media-queries';

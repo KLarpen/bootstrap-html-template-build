@@ -1,0 +1,10 @@
+$primary-color: #aaa;
+
+$font-stack-titles: Helvetica, arial;
+$font-stack-normal: Roboto, arial;
+
+// You can assign to variables if they aren't already assigned 
+// by adding the !default flag to the end of the value.
+$content: "First content";
+$content: "Second content?" !default;
+$new_content: "First time reference" !default;

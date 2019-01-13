@@ -1,0 +1,58 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+        -ms-transform: $property;
+            transform: $property;
+}
+
+// When using #{} interpolation, quoted strings are unquoted
+@mixin firefox-message($selector) {
+    body.firefox #{$selector}:before {
+        content: "Hi, Firefox users!";
+    }
+}
+
+// If there is no parent selector, the value of & will be null.
+@mixin does-parent-exist {
+    @if & {
+        &:hover {
+            color: red;
+        }
+    } @else {
+        a {
+            color: red;
+        }
+    }
+}
+
+// Mixins can also specify default values for their arguments 
+// using the normal variable-setting syntax.
+@mixin sexy-border($color, $width: 1in) {
+    border: {
+      color: $color;
+      width: $width;
+      style: dashed;
+    }
+}
+
+// Variable count of Arguments
+@mixin box-shadow($shadows...) {
+    -moz-box-shadow: $shadows;
+    -webkit-box-shadow: $shadows;
+    box-shadow: $shadows;
+}
+
+@mixin colors($text, $background, $border) {
+    color: $text;
+    background-color: $background;
+    border-color: $border;
+}
+
+// The block of content passed to a mixin are evaluated in the scope 
+// where the block is defined, not in the scope of the mixin. 
+@mixin colors-with-passing-content($color: blue) {
+    background-color: $color;
+    @content;
+    border-color: $color;
+}
+
+

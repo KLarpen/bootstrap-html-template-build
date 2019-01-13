@@ -1,0 +1,23 @@
+// This styles will be nested into the selector with @import
+.cardInfoComponent {
+    border: 1px solid green;
+    text-shadow: 0 0 12px #000000;
+    
+    .head {
+        font-size: 3rem;
+    }
+    
+    .content {
+        font-size: 2rem;
+    
+        a {
+            display: block;
+            background-color: aqua;
+            color: #fff;
+            
+            &:hover {
+                background-color: aquamarine;
+            }
+        }
+    }
+}
