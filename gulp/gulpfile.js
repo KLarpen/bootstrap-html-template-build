@@ -60,9 +60,18 @@ function js(cb) {
     cb();
 }
 
-/* HTML templating based on TwigJS. 
-* File minification based on htmlmin. */
+/* HTML templating based on TwigJS. */
 function html(cb) {
+    src([path.srcHTML])
+      .pipe(watch(path.srcHTML))
+      .pipe(plumber())
+      .pipe(twig())
+      .pipe(dest(path.buildHTML));
+    cb();
+}
+
+/* The same HTML templating with minification based on htmlmin. */
+function html_min(cb) {
     src([path.srcHTML])
       .pipe(watch(path.srcHTML))
       .pipe(plumber())
@@ -95,14 +104,15 @@ function cleanSrcImg() {
 
 
 // Make tasks public
-exports.scss    = scss;
-exports.js      = js;
-exports.html    = html;
-exports.img     = img;
+exports.scss     = scss;
+exports.js       = js;
+exports.html     = html;
+exports.html_min = html_min;
+exports.img      = img;
 exports.cleanSrcImg = cleanSrcImg;
 
 exports.default = series(
     scss, 
     js, 
-    html 
+    html_min 
 );
