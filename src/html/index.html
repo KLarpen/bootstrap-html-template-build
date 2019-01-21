@@ -1,6 +1,6 @@
-{% extends 'layouts/bootstrap-starter-local.html' %}
+{% extends 'layouts/bootstrap-starter-integrated.html' %}
 {% set title = "Bootstrap v4 Starter" %}
-{% set copywright_text = "© KLarpen. All rights reserved" %}
+{% set copyright_text = "© KLarpen. All rights reserved" %}
 {% set pageTitle = "Bootstrap Starter Build" %}
 {% set benefits = ["Fast!", "Easy!", "Efficient!"] %}
 
@@ -28,7 +28,7 @@
 {% block maincontent %}
 <main>
         <div>
-            <p>Main content 2</p>
+            <p>Main content</p>
             <ul>
             {% for value in benefits %}
                 <li>{{ value }}</li>
@@ -41,7 +41,7 @@
 {% block footercontent %}
 <footer>
         <div class="copyright">
-            {{ copywright_text }}
+            {{ copyright_text }}
         </div>
     </footer>
 {% endblock %}
