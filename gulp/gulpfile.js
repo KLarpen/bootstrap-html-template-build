@@ -1,20 +1,9 @@
 "use strict";
 const { src, dest, series, parallel } = require("gulp");
-const   autoprefixer    =       require("autoprefixer"),
-        postcss         =       require('gulp-postcss'),
-        del             =       require("del"),
-        sourcemaps      =       require("gulp-sourcemaps"),
-        csscomb         =       require("gulp-csscomb"),
-        imagemin        =       require('gulp-imagemin'),
+const   sourcemaps      =       require("gulp-sourcemaps"),
         plumber         =       require("gulp-plumber"),
-        sass            =       require("gulp-sass"),
-        cssbeautify     =       require("gulp-cssbeautify"),
-        uglify          =       require("gulp-uglify-es").default,
-        cssnano         =       require("gulp-cssnano"),
         rename          =       require('gulp-rename'),
-        watch           =       require("gulp-watch"),
-        twig            =       require("gulp-twig"),
-        htmlmin         =       require('gulp-htmlmin');
+        watch           =       require("gulp-watch");
 
 
 const path = {
@@ -32,6 +21,11 @@ const path = {
 };
 
 function scss(cb) {
+    const postcss         =       require('gulp-postcss');
+    const autoprefixer    =       require("autoprefixer");
+    const cssnano         =       require("cssnano");
+    const sass            =       require('gulp-sass');
+
     src(path.scss)
        .pipe(watch(path.scss))
        .pipe(plumber())
@@ -39,18 +33,18 @@ function scss(cb) {
        .pipe(sass({
            sourceComments: 'normal'
        }))
+       .pipe( postcss([ autoprefixer() ]) )
        .pipe(sourcemaps.write())
-       .pipe(cssbeautify())
-       .pipe(csscomb())
-       .pipe(postcss([ autoprefixer()]))
        .pipe(dest(path.css))
-       .pipe(cssnano())
+       .pipe( postcss([ cssnano() ]) )
        .pipe(rename({suffix: '.min'}))
        .pipe(dest(path.css));
     cb();
 }
 
 function js(cb) {
+    const uglify = require("gulp-uglify-es").default;
+
     src(path.srcJs)
         .pipe(watch(path.srcJs))
         .pipe(plumber())
@@ -62,6 +56,8 @@ function js(cb) {
 
 /* HTML templating based on TwigJS. */
 function html(cb) {
+    const twig    = require("gulp-twig");
+
     src([path.srcHTML])
       .pipe(watch(path.srcHTML))
       .pipe(plumber())
@@ -72,6 +68,9 @@ function html(cb) {
 
 /* The same HTML templating with minification based on htmlmin. */
 function html_min(cb) {
+    const twig    = require("gulp-twig");
+    const htmlmin = require('gulp-htmlmin');
+
     src([path.srcHTML])
       .pipe(watch(path.srcHTML))
       .pipe(plumber())
@@ -83,6 +82,8 @@ function html_min(cb) {
 
 
 function img(cb) {
+    const imagemin = require('gulp-imagemin');
+
     src(path.srcImages)
        .pipe(imagemin({
            optimizationLevel: 3,
@@ -99,6 +100,7 @@ function img(cb) {
 * "cleanSrcImg"
 * */
 function cleanSrcImg() {
+    const del = require("del");
     return del(['../src/images/**/*', '!../src/images', '!../src/images/.gitkeep'], {force: true});
 }
 
