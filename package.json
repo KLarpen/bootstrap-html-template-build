@@ -1,0 +1,22 @@
+{
+  "name": "bootstrap-html-template-build",
+  "version": "1.0.0",
+  "description": "Template project build based on Bootstrap v4 and other packages. The file contain production libraries the project may depends on.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KLarpen/bootstrap-html-template-build.git"
+  },
+  "author": "KLarpen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KLarpen/bootstrap-html-template-build/issues"
+  },
+  "homepage": "https://github.com/KLarpen/bootstrap-html-template-build#readme",
+  "dependencies": {
+    "bootstrap": "^4.2.1"
+  }
+}

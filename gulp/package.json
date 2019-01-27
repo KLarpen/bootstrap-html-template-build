@@ -1,7 +1,7 @@
 {
-  "name": "gulp-bootstrap-html-template",
+  "name": "gulp-html-template",
   "version": "1.0.0",
-  "description": "Gulp template build based on Bootstrap v4 with TwigJS HTML templating engine.",
+  "description": "Gulp template build with TwigJS HTML templating engine.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,6 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.4.5",
-    "bootstrap": "^4.2.1",
     "cssnano": "^4.1.8",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
