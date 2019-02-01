@@ -7,43 +7,58 @@
 
 {% block headmeta %}
 <!-- Tech meta  -->
-    <!-- OpenGraph -->
-    <!-- Linked Data -->
+<!-- OpenGraph -->
+<!-- Linked Data -->
 {% endblock %}
 
 {% block headscripts %}
-    <!-- Page Specific Scripts & Styles -->
+<!-- Page Specific Scripts & Styles -->
 {% endblock %}
 
 {% block bodyopenscripts %}
-    <!-- Page specific scripts that need to be placed exactly after the body open  -->
+<!-- Page specific scripts that need to be placed exactly after the body open  -->
 {% endblock %}
 
 {% block headercontent %}
-<header>
-        <h1> {{pageTitle}} </h1>
-    </header>
+<header class="container-fluid">
+    <div class="row align-items-baseline">
+        <div class="col col-lg-auto">
+            <h1> {{pageTitle}} </h1>
+        </div>
+        <div class="col-lg mr-auto">
+            Menu
+        </div>
+        <div class="col-xl-auto d-none d-xl-block">
+            Tray
+        </div>
+    </div>
+</header>
 {% endblock %} 
 
 {% block maincontent %}
 <main>
-        <div>
-            <p>Main content</p>
-            <ul>
-            {% for value in benefits %}
-                <li>{{ value }}</li>
-            {% endfor %}
-            </ul>
-        </div>
-    </main>
+    {% include "components/bootstrap/v4/breadcrumb.html" %}
+    <div class="container">
+        <p>Main content</p>
+        <ul>
+        {% for value in benefits %}
+            <li>{{ value }}</li>
+        {% endfor %}
+        </ul>
+        <a class="btn btn-add-custom-color" href="#">Btn Lable with added custom color</a>
+
+    </div>
+</main>
 {% endblock %}
 
 {% block footercontent %}
 <footer>
+    <div class="container-fluid">
         <div class="copyright">
             {{ copyright_text }}
         </div>
-    </footer>
+    </div>
+</footer>
 {% endblock %}
 
 {% block footerscripts %}
