@@ -1,0 +1,146 @@
+{% extends 'layouts/bootstrap-starter-integrated.html' %}
+{% set title = "Bootstrap v4 Starter" %}
+{% set copyright_text = "© KLarpen. All rights reserved" %}
+{% set pageTitle = "Bootstrap Starter Build" %}
+{% set benefits = ["Fast!", "Easy!", "Efficient!"] %}
+
+
+{% block headmeta %}
+<!-- Tech meta  -->
+<!-- OpenGraph -->
+<!-- Linked Data -->
+{% endblock %}
+
+{% block headscripts %}
+<!-- Page Specific Scripts & Styles -->
+{% endblock %}
+
+{% block bodyopenscripts %}
+<!-- Page specific scripts that need to be placed exactly after the body open  -->
+{% endblock %}
+
+{% block headercontent %}
+<header class="container-fluid">
+    <div class="row align-items-baseline">
+        <div class="col col-lg-auto">
+            <h1> {{pageTitle}} </h1>
+        </div>
+        <div class="col-lg mr-auto">
+            {% include "components/bootstrap/v4/navs.html" %}
+        </div>
+        <div class="col-xl-auto d-none d-xl-block">
+            Tray
+        </div>
+    </div>
+</header>
+{% include "components/bootstrap/v4/navbar.html" %}
+{% endblock %} 
+
+{% block maincontent %}
+{% include "components/bootstrap/v4/modals.html" %}
+<main>
+    {% include "components/bootstrap/v4/breadcrumb.html" %}
+    <div class="container">
+        <p>Main content</p>
+        <ul>
+        {% for value in benefits %}
+            <li>{{ value }}</li>
+        {% endfor %}
+        </ul>
+        <a class="btn btn-add-custom-color" href="#">Btn Lable with added custom color</a>
+        <hr>
+        {% include "components/bootstrap/v4/small-component-reference.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/button-group.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/dropdown.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/tooltips.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/alert.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/card.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/carousel.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/collapse-element.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/accordion.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/form.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/progress.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/jumbotron.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/list-group.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/media-objects.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/scrollspy.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/toast.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/popovers.html" %}
+        <hr>
+        {% include "components/bootstrap/v4/table.html" %}
+    </div>
+</main>
+{% endblock %}
+
+{% block footercontent %}
+<footer>
+    <div class="container-fluid">
+        <div class="copyright">
+            {{ copyright_text }}
+        </div>
+    </div>
+</footer>
+{% endblock %}
+
+{% block footerscripts %}
+<!-- Page Specific Scripts & Styles (footer) -->
+<script src="lib/plugins/bs-custom-file-input.min.js"></script>
+{# Custom-File-Input init handler #}
+<script>
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+    });
+</script>
+{# Varying modal handler function #}
+<script>
+    $(document).ready( function () {
+        $('#varyingModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        });
+    });
+</script>
+{# Popover init handler #}
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
+{# Tooltip init handler #}
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+{# Toast init handler #}
+<script>
+    $(document).ready(function () {
+        $('.toast').toast({
+           autohide: true,
+           delay: 10000 
+        });
+        $('.toast').toast('show');
+    });
+</script>
+{% endblock %}

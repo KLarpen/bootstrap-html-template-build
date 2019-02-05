@@ -1,0 +1,33 @@
+{#
+Popovers rely on the 3rd party library Popper.js for positioning. 
+You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js
+Popovers require the tooltip plugin as a dependency.
+If you’re building our JavaScript from source, it requires util.js.
+
+Popovers are opt-in for performance reasons, so you must initialize them yourself.
+One way to initialize all popovers on a page would be to select them by their data-toggle attribute:
+$(function () {
+  $('[data-toggle="popover"]').popover()
+});
+
+When you have some styles on a parent element that interfere with a popover, you’ll want to specify a custom container so that the popover’s HTML appears within that element instead.
+$(function () {
+  $('.example-popover').popover({
+    container: 'body'
+  })
+})
+
+You may define placement by data-placement="top" (right, bottom, left).
+
+Data-trigger attribute defines how popover is triggered - click | hover | focus | manual. 
+You may pass multiple triggers; separate them with a space. manual cannot be combined with any other trigger.
+
+More about popovers on https://getbootstrap.com/docs/4.2/components/popovers/
+#}
+<button type="button" class="btn btn-lg btn-danger mb-2" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+
+<p data-toggle="popover" data-trigger="hover" data-placement="top" 
+    title="Paragraph explainer popover" 
+    data-content="This content will explain the paragraph meanings for you. The popover itself was triggered by hover">
+    Some paragraph content text. Some paragraph content text. Some paragraph content text. Some paragraph content text. Some paragraph content text. Some paragraph content text. Some paragraph content text.
+</p>

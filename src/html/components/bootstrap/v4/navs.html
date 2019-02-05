@@ -1,0 +1,46 @@
+{# Change the horizontal alignment of your nav with flexbox utilities.
+    - .justify-content-center, .justify-content-end 
+    Stack your navigation by changing the flex item direction with the .flex-column utility 
+    (as well as responsive versions, e.g. .flex-sm-column, .flex-sm-row). 
+
+    To proportionately fill all available space with your .nav-items, use .nav-fill
+    For equal-width elements, use .nav-justified
+
+    Add the .nav-tabs class to generate a tabbed interface.
+    Add the .nav-pills class to generate a "pill" navigation.
+
+#}
+<nav class="nav">
+    <a class="nav-item nav-link active" href="#">Active</a>
+    <a class="nav-item nav-link" href="#">Link</a>
+    <a class="nav-item nav-link" href="#">Link</a>
+    <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+</nav>
+        
+<hr>
+        
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+</ul>
+        
+<hr>
+
+

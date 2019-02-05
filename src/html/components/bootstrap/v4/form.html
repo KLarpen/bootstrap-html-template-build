@@ -1,0 +1,312 @@
+{#
+Form Layouts
+1. .form-group
+2. form with standard grid: .row .col etc.
+3. You may also swap .row for .form-row, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
+4. Horizontal form with grid. Be sure to add .col-form-label to your <label>s as well so they’re vertically centered with their associated form controls.
+5. .form-inline 
+#}
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+
+<form id="" action="" class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom01">First name</label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" name="firstname" value="" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">This field is required</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom02">Last name</label>
+            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" name="lastname" value="" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">This field is required</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustomUsername">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+              </div>
+              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" name="username" value="" required>
+              <div class="valid-feedback">It's free!</div>
+              <div class="invalid-feedback">
+                Please choose a free username.
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="inputPassword5">Password</label>
+        <input type="password" name="pass" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" required>
+        <small id="passwordHelpBlock" class="form-text text-muted">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+        </small>
+        <div class="invalid-feedback">Your password is too weak.</div>
+        <div class="valid-feedback">Strong enough!</div>
+    </div>
+    
+    <div class="form-group">
+        <label for="validationTextarea">Description</label>
+        <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" name="description" required></textarea>
+        <div class="invalid-feedback">
+            Please enter a message in the textarea.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="validationCustomSelect">Role</label>
+        <select class="custom-select" id="validationCustomSelect" name="roletype" required>
+            <option value="">Select role</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+        <div class="invalid-feedback">Invalid custom select feedback</div>
+    </div>
+    
+    <div class="form-group">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" name="email-notification" class="custom-control-input" id="customSwitch" aria-checked="true" checked>
+            <label class="custom-control-label" for="customSwitch">Notify me by email about direct messages</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" name="news-subsrcibtion" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1">Subscribe me to newsletters</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline1" name="sex" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline1">Male</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline2" name="sex" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline2">Female</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline3" name="sex" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline3">Other</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
+            <label class="btn btn-outline-info active">
+                <input type="radio" name="priceplan" id="option1" autocomplete="off" checked> Free Active
+            </label>
+            <label class="btn btn-outline-info">
+                <input type="radio" name="priceplan" id="option2" autocomplete="off"> $20 (radio)
+            </label>
+            <label class="btn btn-outline-info">
+                <input type="radio" name="priceplan" id="option3" autocomplete="off"> $50 (radio)
+            </label>
+        </div>                
+    </div>
+
+    <div class="form-group">
+        <div class="custom-control">
+            <label for="customRange3">Example range</label>
+            <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3" name="limit">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="basic-url">Your vanity URL (input group)</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">
+                    https://example.com/users/
+                </span>
+            </div>
+            <input type="text" name="userdomain" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="btnCheckDomain">Check it</button>
+            </div>
+            <div class="valid-feedback">It's free!</div>
+            <div class="invalid-feedback">This domain is used.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="marginField">Your Margin</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Currency</button>
+                <div class="dropdown-menu">
+                    <button class="dropdown-item">$</button>
+                    <button class="dropdown-item">€</button>
+                    <button class="dropdown-item">₴</button>
+                </div>
+                <span class="input-group-text" id="currencyLable">$</span>
+            </div>
+            <input type="text" name="usermargin" id="marginField" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        {# 
+            Custom file input relies on bs-custom-file-input js plugin. 
+            You must initialize plugin by adding to your page's script: 
+            $(document).ready(function () { bsCustomFileInput.init() });
+        #}
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" multiple aria-describedby="fileHelp" lang="en">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+            <small class="form-text text-muted" id="fileHelp">We accept txt and pdf files only.</small>
+            <div class="invalid-feedback">Please provide a valid file format.</div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                Agree to <a href="#" target="_blank" rel="noopener noreferrer">terms and conditions</a>
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<hr>
+
+<form id="" action="" class="needs-validation" novalidate>
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text" name="email" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" name="pass" class="form-control" id="inputPassword3" placeholder="Password" required>
+        </div>
+    </div>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        First radio
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                    <label class="form-check-label" for="gridRadios2">
+                        Second radio
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                    <label class="form-check-label" for="gridRadios3">
+                        Third disabled radio
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group row">
+        <div class="col-sm-2">Checkbox</div>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="single-ooption" id="gridCheck1">
+                <label class="form-check-label" for="gridCheck1">
+                    Example checkbox
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">Options</div>
+        <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="inline-optionA" id="inlineCheckbox1" value="optionA">
+                <label class="form-check-label" for="inlineCheckbox1">A</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="inline-optionB" id="inlineCheckbox2" value="optionB">
+                <label class="form-check-label" for="inlineCheckbox2">B</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </div>
+</form>
+
+<hr>
+
+<form id="" action="" class="form-inline needs-validation" novalidate>
+    <div class="form-group">
+        <label for="phoneSaved" class="sr-only">Phone number</label>
+        <input type="tel" name="phone" id="phoneSaved" readonly class="form-control-plaintext form-control-sm" value="+380999999999">
+    </div>
+    <div class="form-group">
+        <label for="inputPassword6" class="sr-only">Password</label>
+        <input type="password" name="pass" id="inputPassword6" class="form-control form-control-sm mx-sm-3" aria-describedby="passwordHelpInline" placeholder="Type code here..." required>
+        <small id="passwordHelpInline" class="text-muted">
+            We've send you an SMS.
+        </small>
+    </div>
+
+    <button type="submit" class="btn btn-primary ml-2">Confirm Identity</button>
+</form>

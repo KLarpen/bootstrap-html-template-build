@@ -1,49 +1,131 @@
-/* Include Bootstrap v4 core styles */
+// Override some Bootstrap variables
+// $grid-breakpoints: (
+//     sm: 768px, //Default 576px
+//     md: 1024px, //Default 768px
+//     lg: 1200px, //Default 992px
+//     xl: 1400px //Default 1200px
+// );
+// $container-max-widths: (
+//     sm: 720px, //Default 540px
+//     md: 984px, //Default 720px
+//     lg: 1140px, //Default 960px
+//     xl: 1380px //Default 1140px
+// );
+
+$gray-500: #adb5bd;
+$teal:    #20c997;
+$theme-colors: (
+  "primary": #0074d9,
+  "danger": #ff4136,
+  "add-custom-color": #900
+);
+
+
+$enable-gradients: true;
+// $enable-shadows:   true;
+// $body-bg: $teal;
+// $body-color: #fff;
+
+// $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+// $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+// $font-family-base:            $font-family-sans-serif;
+// $font-size-base:              1rem; // Assumes the browser default, typically `16px`
+// $font-size-lg:                ($font-size-base * 1.25);
+// $font-size-sm:                ($font-size-base * .875);
+
+// $breadcrumb-divider: none;
+// $breadcrumb-divider: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGQ9Ik0yLjUgMEwxIDEuNSAzLjUgNCAxIDYuNSAyLjUgOGw0LTQtNC00eiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmc+);
+// $breadcrumb-divider: quote(">");
+
+// $carousel-transition: transform 2s ease, opacity .5s ease-out;
+
+// $custom-file-text: (
+//   en: "Browse",
+//   uk: "Обрати",
+//   ru: "Выбрать"
+// );
+
+// $modal-xl: 1140px;
+// $modal-lg: 800px;
+// $modal-md: 500px;
+// $modal-sm: 300px;
+// $modal-backdrop-bg: $teal;
+// $modal-backdrop-opacity: .9;
+// $modal-fade-transform: scale(.8);
+
+// $progress-height:                   1rem;
+// $progress-font-size:                ($font-size-base * .75);
+// $progress-bg:                       $gray-200;
+// $progress-border-radius:            $border-radius;
+// $progress-box-shadow:               inset 0 .1rem .1rem rgba($black, .1);
+// $progress-bar-color:                $white;
+// $progress-bar-bg:                   theme-color("primary");
+// $progress-bar-animation-timing:     1s linear infinite;
+// $progress-bar-transition:           width .6s ease;
+
+// $embed-responsive-aspect-ratios: (
+//     (21 9),
+//     (16 9),
+//     (4 3), //Add new ratio
+//     (3 4),
+//     (1 1)
+// );
+
+
+
+/* Include Bootstrap v4 styles */
 
 // Option A: Include all of Bootstrap
-// @import '../../gulp/node_modules/bootstrap/scss/bootstrap.scss';
+// @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 // Option B: Include parts of Bootstrap
 // Required
-@import '../../gulp/node_modules/bootstrap/scss/functions';
-@import '../../gulp/node_modules/bootstrap/scss/variables';
-@import '../../gulp/node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins';
+// Modifications that needed to be between Bootstrap required and optional parts
+
+// $theme-colors: map-remove($theme-colors, "info", "light", "dark");
+// $grid-breakpoints: map-remove($grid-breakpoints, "sm");
+$container-max-widths: map-remove($container-max-widths, "sm");
+
+// End modifications
 // Optional Bootstrap parts
-@import "../../gulp/node_modules/bootstrap/scss/root";
-@import "../../gulp/node_modules/bootstrap/scss/reboot";
-@import "../../gulp/node_modules/bootstrap/scss/type";
-@import "../../gulp/node_modules/bootstrap/scss/images";
-@import "../../gulp/node_modules/bootstrap/scss/code";
-@import "../../gulp/node_modules/bootstrap/scss/grid";
-@import "../../gulp/node_modules/bootstrap/scss/tables";
-@import "../../gulp/node_modules/bootstrap/scss/forms";
-@import "../../gulp/node_modules/bootstrap/scss/buttons";
-@import "../../gulp/node_modules/bootstrap/scss/transitions";
-@import "../../gulp/node_modules/bootstrap/scss/dropdown";
-@import "../../gulp/node_modules/bootstrap/scss/button-group";
-@import "../../gulp/node_modules/bootstrap/scss/input-group";
-@import "../../gulp/node_modules/bootstrap/scss/custom-forms";
-@import "../../gulp/node_modules/bootstrap/scss/nav";
-@import "../../gulp/node_modules/bootstrap/scss/navbar";
-@import "../../gulp/node_modules/bootstrap/scss/card";
-@import "../../gulp/node_modules/bootstrap/scss/breadcrumb";
-@import "../../gulp/node_modules/bootstrap/scss/pagination";
-@import "../../gulp/node_modules/bootstrap/scss/badge";
-@import "../../gulp/node_modules/bootstrap/scss/jumbotron";
-@import "../../gulp/node_modules/bootstrap/scss/alert";
-@import "../../gulp/node_modules/bootstrap/scss/progress";
-@import "../../gulp/node_modules/bootstrap/scss/media";
-@import "../../gulp/node_modules/bootstrap/scss/list-group";
-@import "../../gulp/node_modules/bootstrap/scss/close";
-@import "../../gulp/node_modules/bootstrap/scss/toasts";
-@import "../../gulp/node_modules/bootstrap/scss/modal";
-@import "../../gulp/node_modules/bootstrap/scss/tooltip";
-@import "../../gulp/node_modules/bootstrap/scss/popover";
-@import "../../gulp/node_modules/bootstrap/scss/carousel";
-@import "../../gulp/node_modules/bootstrap/scss/spinners";
-@import "../../gulp/node_modules/bootstrap/scss/utilities";
-@import "../../gulp/node_modules/bootstrap/scss/print";
-/* END of the Optional Bootstrap parts */
+// @import "../../node_modules/bootstrap/scss/root"; //For prototyping only
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/code"; //code, pre, var, kbd, samp HTML tags
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/button-group";
+@import "../../node_modules/bootstrap/scss/input-group";
+@import "../../node_modules/bootstrap/scss/custom-forms";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/breadcrumb";
+@import "../../node_modules/bootstrap/scss/pagination";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/jumbotron";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/progress";
+@import "../../node_modules/bootstrap/scss/media";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/toasts";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/tooltip";
+@import "../../node_modules/bootstrap/scss/popover";
+@import "../../node_modules/bootstrap/scss/carousel";
+@import "../../node_modules/bootstrap/scss/spinners";
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/print";
+/* END of the Bootstrap parts */
 
 
 /* Custom Style includes */
@@ -54,9 +136,16 @@
 
 /* Custom Style */
 .copyright {
-    color: $gray-500; //Variable from Bootstrap
+    color: $gray-400; //Variable from Bootstrap
+}
+h1 {
+    //Functions from Bootstrap
+    // color: gray("200"); 
+    // color: color("teal"); 
+    // color: theme-color("add-custom-color"); 
+    color: theme-color-level("add-custom-color", -5); 
 }
 
 
-/* Responsive Options */
-@import 'responsive/main-media-queries';
+/* Responsive Options 2 */
+@import 'responsive/custom-media-queries-with-bootstrap';

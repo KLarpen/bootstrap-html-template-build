@@ -4,38 +4,71 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Tech meta  -->
-    <!-- OpenGraph -->
-    <!-- Linked Data -->
+<!-- OpenGraph -->
+<!-- Linked Data -->
     <title>Bootstrap v4 Starter | Sitename</title>
     
-    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom-with-bootstrap-integration.min.css">
     
-        <!-- Page Specific Scripts & Styles -->
+    <!-- Page Specific Scripts & Styles -->
   </head>
   <body>
-        <!-- Page specific scripts that need to be placed exactly after the body open  -->
-    <header>
-        <h1> Bootstrap Starter Build </h1>
-    </header>
+    <!-- Page specific scripts that need to be placed exactly after the body open  -->
+    <header class="container-fluid">
+    <div class="row align-items-baseline">
+        <div class="col col-lg-auto">
+            <h1> Bootstrap Starter Build </h1>
+        </div>
+        <div class="col-lg mr-auto">
+            Menu
+        </div>
+        <div class="col-xl-auto d-none d-xl-block">
+            Tray
+        </div>
+    </div>
+</header>
  
     <main>
-        <div>
-            <p>Main content 2</p>
-            <ul>
-                            <li>Fast!</li>
-                            <li>Easy!</li>
-                            <li>Efficient!</li>
-                        </ul>
-        </div>
-    </main>
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+</nav>
+    
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Library</li>
+    </ol>
+</nav>
+    
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+    </ol>
+</nav>    <div class="container">
+        <p>Main content</p>
+        <ul>
+                    <li>Fast!</li>
+                    <li>Easy!</li>
+                    <li>Efficient!</li>
+                </ul>
+        <a class="btn btn-add-custom-color" href="#">Btn Lable with added custom color</a>
+
+    </div>
+</main>
     <footer>
+    <div class="container-fluid">
         <div class="copyright">
             © KLarpen. All rights reserved
         </div>
-    </footer>
+    </div>
+</footer>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="lib/bootstrap/v4/bootstrap.bundle.min.js"></script>
     
     <!-- Page Specific Scripts & Styles (footer) -->
   </body>

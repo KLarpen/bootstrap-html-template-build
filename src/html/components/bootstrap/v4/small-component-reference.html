@@ -1,0 +1,203 @@
+<p class="text-monospace">
+    This is in monospace and there is the 
+    <a href="#" class="text-decoration-none">non-underlined link</a>
+</p>
+
+<p>
+    <abbr title="attribute">attr</abbr> 
+    <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
+</p>
+
+<p class="text-muted">
+    Muted text with a <a href="#" class="text-reset">reset color link</a>.
+</p>
+
+<blockquote class="blockquote">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+</blockquote>
+
+<blockquote class="blockquote">
+    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+</blockquote>
+
+<ul class="list-unstyled">
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Consectetur adipiscing elit
+        <ul>
+            <li>Phasellus iaculis neque</li>
+            <li>Purus sodales ultricies</li>
+        </ul>
+    </li>
+</ul>
+
+<ul class="list-inline">
+    <li class="list-inline-item">Lorem ipsum</li>
+    <li class="list-inline-item">Phasellus iaculis</li>
+    <li class="list-inline-item">Nulla volutpat</li>
+</ul>
+
+<dl class="row">
+    <dt class="col-sm-3">Description lists</dt>
+    <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+    
+    <dt class="col-sm-3">Euismod</dt>
+    <dd class="col-sm-9">
+        <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
+        <p>Donec id elit non mi porta gravida at eget metus.</p>
+    </dd>
+</dl>
+
+<p class="text-center">
+    To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+    To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
+</p>
+
+<img src="https://via.placeholder.com/600x200.jpg" class="img-fluid" alt="Responsive image">
+<img src="https://via.placeholder.com/150.jpg" class="rounded mx-auto d-block" alt="Block image">
+<img src="https://via.placeholder.com/100.jpg" class="img-thumbnail" alt="Thumbnail">
+​<picture>
+    <source  type="image/webp" 
+        srcset="https://via.placeholder.com/100.webp 1x,
+                https://via.placeholder.com/200.webp 2x"
+        >
+    <source  type="image/jpeg"
+        srcset="https://via.placeholder.com/100.jpg 1x,
+                https://via.placeholder.com/200.jpg 2x"
+        >
+    <img src="https://via.placeholder.com/100.jpg" class="img-thumbnail" alt="Image by Picture tag">
+</picture>
+
+<div class="mt-2">
+    <figure class="figure">
+        <img src="https://via.placeholder.com/200x100.webp" class="figure-img img-fluid rounded" alt="">
+        <figcaption class="figure-caption">A caption for the above image.</figcaption>
+    </figure>
+</div>
+
+<div class="mt-2 mb-2">
+    <h4>Badges:</h4> 
+    <span class="badge badge-pill badge-success">Success</span>
+    <a href="#" class="badge badge-info">Info</a>
+    <button type="button" class="btn btn-primary">
+        Profile <span class="badge badge-light">9</span>
+        <span class="sr-only">unread messages</span>
+    </button>
+</div>
+
+<hr>
+<button type="button" class="btn btn-link">Link</button>
+<a class="btn btn-primary" href="#" role="button">Link</a>
+<button class="btn btn-primary" type="submit">Button</button>
+<input class="btn btn-primary" type="button" value="Input">
+<input class="btn btn-primary" type="submit" value="Submit">
+<input class="btn btn-primary" type="reset" value="Reset">
+<hr>
+<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary Active link</a>
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Single toggle</button>
+<button type="button" class="btn btn-primary active" data-toggle="button" aria-pressed="true" autocomplete="off">Single toggle in revers</button>
+<hr>
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-secondary active">
+        <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+    </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+    </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+    </label>
+</div>
+
+<hr>
+
+{# 
+    Pagination 
+Use .disabled for links that appear un-clickable and .active to indicate the current page.
+You should always add tabindex="-1" on disabled links and use custom JavaScript to fully disable their functionality
+Add .pagination-lg or .pagination-sm for additional sizes.
+#}
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item active"><a class="page-link" href="#">3</a></li>
+    <li class="page-item disabled">
+      <a class="page-link" href="#" aria-label="Next" tabindex="-1" aria-disabled="true">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<hr>
+
+<h4>Spinners</h4>
+<div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-secondary" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-success" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-info" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-light" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-dark" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+    Loading...
+</button>
+<hr>
+{# 
+Use flexbox utilities, float utilities, or text alignment utilities to place spinners exactly where you need them in any situation. 
+Add .spinner-border-sm and .spinner-grow-sm to make a smaller spinner that can quickly be used within other components.
+Or, use custom CSS or inline styles to change the dimensions as needed.
+
+#}
+<div class="d-flex justify-content-center">
+    <div class="spinner-grow spinner-grow-sm text-info" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-border spinner-border-sm" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<hr>
+<h4>Embed Utilities</h4>
+{#
+Aspect ratios
+    embed-responsive-21by9
+    embed-responsive-16by9
+    embed-responsive-4by3
+    embed-responsive-1by1
+Within _variables.scss, you can change the aspect ratios you want to use. 
+#}
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+</div>
