@@ -1,9 +1,9 @@
 "use strict";
-const { src, dest, series, parallel } = require("gulp");
+const { src, dest, series, parallel, watch } = require("gulp");
 const   sourcemaps      =       require("gulp-sourcemaps"),
         plumber         =       require("gulp-plumber"),
         rename          =       require('gulp-rename'),
-        watch           =       require("gulp-watch"),
+        // watch           =       require("gulp-watch"),
         fse             =       require('fs-extra'),
         path            =       require('path');
 
@@ -75,14 +75,13 @@ function fontsTask(cb) {
     cb();
 };
 
-function scss(cb) {
+function sass(cb) {
     const postcss         =       require('gulp-postcss');
     const autoprefixer    =       require("autoprefixer");
     const cssnano         =       require("cssnano");
     const sass            =       require('gulp-sass');
 
     src(path2files.scss)
-       .pipe(watch(path2files.scss))
        .pipe(plumber())
        .pipe(sourcemaps.init())
        .pipe(sass({
@@ -101,7 +100,6 @@ function js(cb) {
     const uglify = require("gulp-uglify-es").default;
 
     src(path2files.srcJs)
-        .pipe(watch(path2files.srcJs))
         .pipe(plumber())
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
@@ -114,7 +112,6 @@ function html(cb) {
     const twig    = require("gulp-twig");
 
     src([path2files.srcHTML])
-      .pipe(watch(path2files.srcHTML))
       .pipe(plumber())
       .pipe(twig())
       .pipe(dest(path2files.buildHTML));
@@ -127,7 +124,6 @@ function html_min(cb) {
     const htmlmin = require('gulp-htmlmin');
 
     src([path2files.srcHTML])
-      .pipe(watch(path2files.srcHTML))
       .pipe(plumber())
       .pipe(twig())
       .pipe(htmlmin({ collapseWhitespace: true }))
@@ -159,9 +155,14 @@ function cleanSrcImg() {
     return del(['../src/images/**/*', '!../src/images', '!../src/images/.gitkeep'], {force: true});
 }
 
+function watchChanges() {
+    watch([ '../src/html/**/*.html' ], html);
+    watch(path2files.scss, sass);
+    watch(path2files.srcJs, js);
+}  
 
 // Make tasks public
-exports.scss     = scss;
+exports.sass     = sass;
 exports.js       = js;
 exports.html     = html;
 exports.html_min = html_min;
@@ -170,14 +171,18 @@ exports.fonts    = fontsTask;
 exports.buildLib    = buildLib;
 exports.cleanSrcImg = cleanSrcImg;
 
-exports.dev = series(
-    scss, 
+exports.default = series(
+    sass, 
     js, 
-    html 
+    html,
+    watchChanges
 );
 
-exports.default = series(
-    scss, 
+exports.build = series(
+    sass, 
     js, 
-    html_min 
+    html,
+    img,
+    fontsTask,
+    buildLib
 );
