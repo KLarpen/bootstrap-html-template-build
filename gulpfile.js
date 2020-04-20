@@ -4,7 +4,6 @@ const   sourcemaps    = require("gulp-sourcemaps"),
         plumber       = require("gulp-plumber"),
         rename        = require('gulp-rename'),
         fse           = require('fs-extra'),
-        path          = require('path'),
         uglify        = require("gulp-uglify-es").default,
         postcss       = require('gulp-postcss'),
         autoprefixer  = require("autoprefixer"),
@@ -53,10 +52,7 @@ const copyFiles = function (files, cb) {
         });
         
     };
-    let result = files.map((file) => copy(
-        file.from,
-        file.dest
-    ));
+    let result = files.map( file => copy( file.from, file.dest ) );
     Promise.all(result).then( () => cb() );
 };
 
@@ -97,7 +93,7 @@ function sassTask(cb) {
        .on('end', () => { cb(); });
 }
 
-function js(cb) {
+function jsTask(cb) {
     fse.ensureDir(path2files.buildJs);
     src(path2files.srcJs)
         .pipe(plumber())
@@ -131,7 +127,7 @@ function html_min(cb) {
 }
 
 
-function img(cb) {
+function imgTask(cb) {
     const imagemin = require('gulp-imagemin');
 
     fse.ensureDir(path2files.buildImages);
@@ -162,15 +158,15 @@ function cleanSrcImg(cb) {
 function watchChanges() {
     watch([ './src/html/**/*.html' ], html);
     watch(path2files.scss, sassTask);
-    watch(path2files.srcJs, js);
+    watch(path2files.srcJs, jsTask);
 }  
 
 // Make tasks public
 exports.sass     = sassTask;
-exports.js       = js;
+exports.js       = jsTask;
 exports.html     = html;
 exports.html_min = html_min;
-exports.img      = img;
+exports.img      = imgTask;
 exports.fonts    = fontsTask;
 exports.lib      = buildLib;
 exports.cleanSrcImg = cleanSrcImg;
@@ -178,7 +174,7 @@ exports.cleanSrcImg = cleanSrcImg;
 exports.default = series(
     parallel(
         sassTask, 
-        js, 
+        jsTask, 
         html
     ),
     watchChanges
@@ -190,7 +186,7 @@ exports.build = series(
     buildLib,
     parallel(
         sassTask, 
-        js, 
-        img
+        jsTask, 
+        imgTask
     )
 );
