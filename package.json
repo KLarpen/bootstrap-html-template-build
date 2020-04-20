@@ -1,25 +1,68 @@
 {
   "name": "bootstrap-html-template-build",
-  "version": "1.0.0",
-  "description": "Template project build based on Bootstrap v4 and other packages. The file contain production libraries the project may depends on.",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Template project build based on Bootstrap v4, TwigJS HTML templating engine and other packages.",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp",
+    "build": "gulp build",
+    "sass": "gulp sass",
+    "js": "gulp js",
+    "html": "gulp html",
+    "html_min": "gulp html_min",
+    "img": "gulp img",
+    "fonts": "gulp fonts",
+    "lib": "gulp lib",
+    "cleanSrcImg": "gulp cleanSrcImg"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KLarpen/bootstrap-html-template-build.git"
   },
-  "author": "KLarpen",
+  "author": "KLarpen <klarpen@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/KLarpen/bootstrap-html-template-build/issues"
   },
   "homepage": "https://github.com/KLarpen/bootstrap-html-template-build#readme",
   "dependencies": {
-    "bootstrap": "^4.2.1",
-    "bs-custom-file-input": "^1.3.1",
-    "chart.js": "^2.7.3",
-    "jquery": "^3.3.1"
-  }
+    "bootstrap": "^4.4.1",
+    "bs-custom-file-input": "^1.3.4",
+    "chart.js": "^2.9.3",
+    "jquery": "^3.5.0",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "fs-extra": "^9.0.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-twig": "^1.2.0",
+    "gulp-uglify-es": "^2.0.0",
+    "lodash": "^4.17.15",
+    "minimatch": "^3.0.4",
+    "path": "^0.12.7"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Chrome >= 45",
+    "Firefox >= 38",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ]
 }
