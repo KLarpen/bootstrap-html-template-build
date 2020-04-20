@@ -1,7 +1,7 @@
 # Template build with HTML/TwigJS, SCSS, JS, images
 
 ## Processing
-Template uses the [Gulp](https://gulpjs.com/) task runner. Check the all task`s names by executing ```gulp --tasks``` in the terminal. The tasks might be called by ```gulp [task-name]```. Alternatively you may call tasks by scripts alias in package.json as  ```npm run [script-name]```:
+Template uses the [Gulp](https://gulpjs.com/) task runner. Check the all task`s names by executing ```gulp --tasks``` in the terminal. The tasks might be called by ```gulp [task-name]``` . Alternatively you may call tasks by scripts alias in package.json as  ```npm run [script-name]``` :
 * ```start``` – run default task wich will process sass, js, html and will continue to watch changes;
 * ```build``` – update the build folder by executing all sass, js, html processing, optimize & copy images, copy fonts and 3rd party libraries;
 * ```sass``` – process scss files once;
